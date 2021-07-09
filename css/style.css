@@ -1,0 +1,368 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    color: var(--white);
+    font-family: 'Nunito', sans-serif;
+}
+
+:root {
+    --black: #081621;
+    --blue: #005792;
+    --red: #e63946;
+    --yellow: #ffa630;
+    --white: #f6f6e9;
+}
+
+.container.nav {
+    padding: 13px 5%;
+    background: var(--black);
+
+}
+
+.navbar__logo svg {
+    width: 150px;
+
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}
+
+.navbar__links {
+    display: flex;
+    gap: 40px;
+}
+
+.navbar__links a {
+    text-transform: capitalize;
+    font-weight: 700;
+    letter-spacing: 1px;
+    transition: all .4s ease;
+}
+
+.navbar__links a:hover {
+    color: var(--yellow);
+}
+
+
+/* ! main home styles */
+
+
+.main-home {
+    overflow: hidden;
+    max-height: calc(100vh - 70px);
+    position: relative;
+}
+
+.main__image {
+    animation: opacity 7s linear infinite;
+}
+
+.main__image img {
+    height: 100vh;
+    width: 150%;
+    overflow: hidden;
+    z-index: 0;
+}
+
+
+@keyframes opacity {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: .8;
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.main__info {
+    position: absolute;
+    top: 20%;
+    left: 10%;
+    z-index: 2;
+    max-width: 50%;
+}
+
+.main__info h1 {
+    font-size: 76px;
+    color: var(--yellow);
+}
+
+.main__info p {
+    font-size: 16px;
+    color: var(--white);
+    letter-spacing: 1px;
+    font-weight: 400;
+    margin-top: 20px;
+}
+
+.main__button {
+
+    z-index: 2;
+    position: absolute;
+    bottom: 15%;
+    left: 48%;
+    background: var(--blue);
+    padding: 10px 30px;
+    text-align: center;
+    font-size: 20px;
+    text-transform: capitalize;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 15px var(--black);
+    transition: all .4s ease;
+}
+
+.main__button:hover {
+    background-color: var(--yellow);
+    transform: scale(1.1);
+}
+
+/* ! footer styles */
+
+.footer {
+    display: flex;
+    justify-content: space-between;
+    text-align: left;
+    padding: 50px 0;
+}
+
+.footer__links {
+    display: flex;
+    gap: 70px;
+    margin-left: -50px;
+}
+
+.footer__links .links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer__links .links h1 {
+    font-size: 16px;
+    text-transform: uppercase;
+    color: #ccc;
+    font-weight: 300;
+    letter-spacing: 1px;
+    padding-bottom: 10px;
+}
+
+.footer__links .links a {
+    text-transform: capitalize;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all .4s ease;
+}
+
+.footer__links .links a:hover {
+    color: var(--yellow);
+}
+
+.footer__socials {
+    display: flex;
+    gap: 30px;
+    padding-right: 30px;
+}
+
+.footer__socials i {
+    font-size: 35px;
+    transition: all .2s ease;
+}
+
+.footer__socials i:hover {
+    color: var(--yellow);
+}
+
+
+/* !mobile navbar */
+.bars__icons{
+    cursor: pointer;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    display: none;
+    z-index: 10;
+}
+.bars__icon{
+    width: 30px;
+    height: 2px;
+    background-color: var(--white);
+    z-index: 10;
+    position: absolute;
+    top: 15px;
+}
+.bars__icon::after{
+    content: '';
+    width: 30px;
+    height: 2px;
+    background-color: var(--white);
+    position: absolute;
+    top: -10px;
+    transition: transform .4s ease;
+}
+.bars__icon::before{
+    content: '';
+    width: 30px;
+    height: 2px;
+    background-color: var(--white);
+    position: absolute;
+    bottom: -10px;
+    transition: transform .4s ease;
+}
+.bars__icons.active .bars__icon{
+   background-color: transparent;
+}
+.bars__icons.active .bars__icon::before{
+    transform: rotate(-45deg);
+    bottom: 0;
+}
+.bars__icons.active .bars__icon::after{
+    transform: rotate(45deg);
+    top: 0;
+}
+
+
+
+
+
+
+
+
+/* !responsive styles */
+
+@media (max-width:1200px) {
+    .container.nav {
+        padding: 13px 2.5%;
+    }
+
+    .footer__links {
+        gap: 50px;
+    }
+}
+
+
+
+@media (max-width:991px) {
+    .main__info h1 {
+        font-size: 68px;
+    }
+
+    .main__info {
+        max-width: 70%;
+    }
+
+    .main__button {
+        left: 40%;
+    }
+
+    .main__image img {
+        width: 140%;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 50px;
+        padding: 50px;
+    }
+
+    .footer__links {
+        margin: 0;
+    }
+}
+
+@media (max-width:768px) {
+
+    .main__image img {
+        width: 130%;
+    }
+
+    .main__info h1 {
+        font-size: 55px;
+    }
+
+    .main__info {
+        max-width: 100%;
+        text-align: center;
+    }
+
+    .main__info p {
+        font-size: 18px;
+        margin: 30px 10px;
+    }
+
+    .main__button {
+        left: 34%;
+    }
+
+    .footer {
+        flex-direction: column;
+        gap: 50px;
+        padding: 50px 20px;
+    }
+
+}
+
+@media (max-width:576px) {
+    .main__info h1 {
+        font-size: 40px;
+    }
+
+    .main__info p {
+        font-size: 15px;
+    }
+
+    .main__button {
+        left: 27%;
+        font-size: 16px;
+    }
+
+    .main__image img {
+        width: 100%;
+    }
+    .footer__links {
+        flex-direction: column;
+    }
+
+    /* ! navbar  */
+    .bars__icons{
+        display: flex;
+    }
+    .navbar__links{
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: rgba(0 , 0 , 0, .9);
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100vh;
+        z-index: 9;
+        justify-content: center;
+        align-items: center;
+        clip-path: polygon(100% 0 , 100% 0 , 100% 100% , 100% 100%);
+        transition: clip-path .4s ease;
+    }
+    .navbar__links a{
+        font-size: 20px;
+    }
+    .navbar__links.active{
+        clip-path: polygon(0 0 , 100% 0 , 100% 100% , 0 100%);
+    }
+}
